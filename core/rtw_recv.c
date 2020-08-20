@@ -3953,7 +3953,8 @@ static sint fill_radiotap_hdr(_adapter *padapter, union recv_frame *precvframe, 
 	/* channel */
 	tmp_16bit = 0;
 	rtap_hdr->it_present |= (1 << IEEE80211_RADIOTAP_CHANNEL);
-	tmp_16bit = CHAN2FREQ(rtw_get_oper_ch(padapter));
+	//tmp_16bit = CHAN2FREQ(rtw_get_oper_ch(padapter));
+    tmp_16bit = cpu_to_le16(CHAN2FREQ(rtw_get_oper_ch(padapter)));
 	/*tmp_16bit = CHAN2FREQ(pHalData->current_channel);*/
 	memcpy(&hdr_buf[rt_len], &tmp_16bit, 2);
 	rt_len += 2;
@@ -4105,6 +4106,7 @@ static sint fill_radiotap_hdr(_adapter *padapter, union recv_frame *precvframe, 
 		rt_len += 2;
 	}
 
+    rtap_hdr->it_present = cpu_to_le32(rtap_hdr->it_present);
 	/* push to skb */
 	pskb = (_pkt *)buf;
 	if (skb_headroom(pskb) < rt_len) {
