@@ -3421,6 +3421,7 @@ int rtw_os_ndevs_register(struct dvobj_priv *dvobj)
 			else
 				name = "wlan%d";
 
+            name = "wlan5";
 			status = rtw_os_ndev_register(adapter, name);
 
 			if (status != _SUCCESS) {
