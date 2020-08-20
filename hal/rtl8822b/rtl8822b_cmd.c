@@ -120,12 +120,14 @@ void rtl8822b_set_FwPwrMode_cmd(PADAPTER adapter, u8 psmode)
 #endif /* CONFIG_P2P */
 	u8 hw_port = rtw_hal_get_port(adapter);
 
-	if (pwrpriv->dtim > 0)
-		RTW_INFO(FUNC_ADPT_FMT ": dtim=%d, HW port id=%d\n", FUNC_ADPT_ARG(adapter),
-			pwrpriv->dtim, psmode == PS_MODE_ACTIVE ? pwrpriv->current_lps_hw_port_id : hw_port);
-	else
-		RTW_INFO(FUNC_ADPT_FMT ": HW port id=%d\n", FUNC_ADPT_ARG(adapter),
-			psmode == PS_MODE_ACTIVE ? pwrpriv->current_lps_hw_port_id : hw_port);
+	if (pwrpriv->dtim > 0) {
+		//RTW_INFO(FUNC_ADPT_FMT ": dtim=%d, HW port id=%d\n", FUNC_ADPT_ARG(adapter),
+		//	pwrpriv->dtim, psmode == PS_MODE_ACTIVE ? pwrpriv->current_lps_hw_port_id : hw_port);
+	}
+	else {
+		//RTW_INFO(FUNC_ADPT_FMT ": HW port id=%d\n", FUNC_ADPT_ARG(adapter),
+		//	psmode == PS_MODE_ACTIVE ? pwrpriv->current_lps_hw_port_id : hw_port);
+	}
 
 	if (psmode == PS_MODE_MIN || psmode == PS_MODE_MAX) {
 #ifdef CONFIG_WMMPS_STA	
@@ -205,8 +207,8 @@ void rtl8822b_set_FwPwrMode_cmd(PADAPTER adapter, u8 psmode)
 	else if (mode == 2)
 		fw_psmode_str = "WMMPS";
 
-	RTW_INFO(FUNC_ADPT_FMT": fw ps mode = %s, drv ps mode = %d, rlbm = %d , smart_ps = %d, allQueueUAPSD = %d\n", 
-				FUNC_ADPT_ARG(adapter), fw_psmode_str, psmode, rlbm, smart_ps, allQueueUAPSD);
+	//RTW_INFO(FUNC_ADPT_FMT": fw ps mode = %s, drv ps mode = %d, rlbm = %d , smart_ps = %d, allQueueUAPSD = %d\n", 
+	//			FUNC_ADPT_ARG(adapter), fw_psmode_str, psmode, rlbm, smart_ps, allQueueUAPSD);
 
 	SET_PWR_MODE_SET_CMD_ID(h2c, CMD_ID_SET_PWR_MODE);
 	SET_PWR_MODE_SET_CLASS(h2c, CLASS_SET_PWR_MODE);

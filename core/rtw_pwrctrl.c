@@ -290,8 +290,8 @@ void rtw_ps_processor(_adapter *padapter)
 	ps_deny = rtw_ps_deny_get(padapter);
 	_exit_pwrlock(&adapter_to_pwrctl(padapter)->lock);
 	if (ps_deny != 0) {
-		RTW_INFO(FUNC_ADPT_FMT ": ps_deny=0x%08X, skip power save!\n",
-			 FUNC_ADPT_ARG(padapter), ps_deny);
+		//RTW_INFO(FUNC_ADPT_FMT ": ps_deny=0x%08X, skip power save!\n",
+		//	 FUNC_ADPT_ARG(padapter), ps_deny);
 		goto exit;
 	}
 
@@ -963,8 +963,8 @@ void rtw_set_ps_mode(PADAPTER padapter, u8 ps_mode, u8 smart_ps, u8 bcn_ant_mode
 #endif /* CONFIG_P2P_PS */
 #endif /* !CONFIG_BT_COEXIST */
 		   ) {
-			RTW_INFO(FUNC_ADPT_FMT" Leave 802.11 power save - %s\n",
-				 FUNC_ADPT_ARG(padapter), msg);
+			//RTW_INFO(FUNC_ADPT_FMT" Leave 802.11 power save - %s\n",
+			//	 FUNC_ADPT_ARG(padapter), msg);
 
 			if (pwrpriv->lps_leave_cnts < UINT_MAX)
 				pwrpriv->lps_leave_cnts++;
@@ -1059,8 +1059,8 @@ void rtw_set_ps_mode(PADAPTER padapter, u8 ps_mode, u8 smart_ps, u8 bcn_ant_mode
 		   ) {
 			u8 pslv;
 
-			RTW_INFO(FUNC_ADPT_FMT" Enter 802.11 power save - %s\n",
-				 FUNC_ADPT_ARG(padapter), msg);
+			//RTW_INFO(FUNC_ADPT_FMT" Enter 802.11 power save - %s\n",
+			//	 FUNC_ADPT_ARG(padapter), msg);
 
 			if (pwrpriv->lps_enter_cnts < UINT_MAX)
 				pwrpriv->lps_enter_cnts++;

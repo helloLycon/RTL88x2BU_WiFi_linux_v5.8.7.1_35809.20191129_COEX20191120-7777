@@ -1282,14 +1282,14 @@ static int rtw_wx_set_freq(struct net_device *dev,
 		if (wrqu->freq.flags == IW_FREQ_AUTO) {
 			if (rtw_chset_search_ch(adapter_to_chset(padapter), wrqu->freq.m) > 0) {
 				padapter->mlmeextpriv.cur_channel = wrqu->freq.m;
-				RTW_INFO("%s: channel is auto, set to channel %d\n", __func__, wrqu->freq.m);
+				//RTW_INFO("%s: channel is auto, set to channel %d\n", __func__, wrqu->freq.m);
 			} else {
 				padapter->mlmeextpriv.cur_channel = 1;
-				RTW_INFO("%s: channel is auto, Channel Plan don't match just set to channel 1\n", __func__);
+				//RTW_INFO("%s: channel is auto, Channel Plan don't match just set to channel 1\n", __func__);
 			}
 		} else {
 			padapter->mlmeextpriv.cur_channel = wrqu->freq.m;
-			RTW_INFO("%s: set to channel %d\n", __func__, padapter->mlmeextpriv.cur_channel);
+			//RTW_INFO("%s: set to channel %d\n", __func__, padapter->mlmeextpriv.cur_channel);
 		}
 	} else {
 		while (wrqu->freq.e) {
@@ -1316,7 +1316,7 @@ static int rtw_wx_set_freq(struct net_device *dev,
 
 		/* If freq is invalid, rtw_freq2ch() will return channel 1 */
 		padapter->mlmeextpriv.cur_channel = rtw_freq2ch(freq);
-		RTW_INFO("%s: set to channel %d\n", __func__, padapter->mlmeextpriv.cur_channel);
+		//RTW_INFO("%s: set to channel %d\n", __func__, padapter->mlmeextpriv.cur_channel);
 	}
 	set_channel_bwmode(padapter, padapter->mlmeextpriv.cur_channel, HAL_PRIME_CHNL_OFFSET_DONT_CARE, CHANNEL_WIDTH_20);
 exit:
