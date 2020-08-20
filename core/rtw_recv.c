@@ -4106,7 +4106,6 @@ static sint fill_radiotap_hdr(_adapter *padapter, union recv_frame *precvframe, 
 		rt_len += 2;
 	}
 
-    rtap_hdr->it_present = cpu_to_le32(rtap_hdr->it_present);
 	/* push to skb */
 	pskb = (_pkt *)buf;
 	if (skb_headroom(pskb) < rt_len) {
